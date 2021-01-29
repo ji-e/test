@@ -3,7 +3,9 @@ package com.hns17.ex_dpm;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class Lockscreen extends Activity {
@@ -20,9 +22,20 @@ public class Lockscreen extends Activity {
 		img.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(), SmS_Service.class);
+				SmS_Service sms = new SmS_Service();
+				sms.removeview();
+//				Intent intent = new Intent(getApplicationContext(), SmS_Service.class);
+//
+//				stopService(intent.setPackage("sms_service"));
+			}
+		});
 
-				stopService(intent.setPackage("sms_service"));
+		((Button)findViewById(R.id.btn)).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Log.e("FDF","Fdfd");
+				SmS_Service sms = new SmS_Service();
+				sms.removeview();
 			}
 		});
 	}
